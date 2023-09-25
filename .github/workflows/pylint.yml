@@ -1,6 +1,11 @@
-name: Python package
+name: Check quality and unit tests
 
-on: [push]
+on:
+  pull_request:
+    types: [opened, reopened]
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -23,6 +28,6 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: flake8 Lint
         uses: py-actions/flake8@v2
-      - name: Test with pytest
+      - name: Unit tests
         run: |
           pytest
