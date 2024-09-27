@@ -13,4 +13,15 @@ class TestExo3(unittest.TestCase):
 
         self.assertEqual(expected, processLines(lines))
 
-    # Ecrire une autre méthode pour vérifier le second use case
+    def test_input_2(self):
+        # Lire le second fichier d'entrée et de sortie
+        with open("sample/input2.txt") as input2:
+            lines = input2.readlines()
+
+        with open("sample/output2.txt") as output2:
+            expected = output2.read().strip()  # Supprimer les espaces inutiles
+
+        self.assertEqual(expected, processLines(lines))
+
+if __name__ == "__main__":
+    unittest.main()
